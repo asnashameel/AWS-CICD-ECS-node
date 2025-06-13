@@ -4,7 +4,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: ""
+        TaskDefinition: "arn:aws:ecs:us-east-1:390403857216:task-definition/newtask:1"
         LoadBalancerInfo:
-          ContainerName: "new-spring-cont"
+          ContainerName: "nodecont"
           ContainerPort: 8080
