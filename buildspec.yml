@@ -5,9 +5,9 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - ACCOUNT_ID=390403857216
+      - ACCOUNT_ID=207567798584
       - REGION=us-east-1
-      - REPO_URI=390403857216.dkr.ecr.us-east-1.amazonaws.com/nodeimg
+      - REPO_URI=207567798584.dkr.ecr.us-east-1.amazonaws.com/nodeimg
       - IMAGE_TAG=latest
       - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
 
