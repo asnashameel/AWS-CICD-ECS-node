@@ -3,8 +3,6 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Installing dependencies...
-      - yum install -y jq maven
       - echo Logging in to Amazon ECR...
       - aws --version
       - ACCOUNT_ID=390403857216
@@ -15,11 +13,9 @@ phases:
 
   build:
     commands:
-      - echo Building the JAR file...
-      - mvn clean install
       - echo Building the Docker image...
       - docker build -t $REPO_URI .
-      - docker tag $REPO_URI:$IMAGE_TAG $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_URI:$IMAGE_TAG
+      - docker tag $REPO_URI:$IMAGE_TAG $REPO_URI:$IMAGE_TAG
 
   post_build:
     commands:
