@@ -16,14 +16,14 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t $REPO_URI .
+      - docker build -t $REPO_URI:$IMAGE_TAG .
 
   post_build:
     commands:
       - echo Pushing Docker image to Amazon ECR...
       - docker push $REPO_URI:$IMAGE_TAG
       - echo Writing imagedefinitions.json...
-      - printf '[{"name":"nodecont","imageUri":"%s.dkr.ecr.%s.amazonaws.com/%s:%s"}]' $ACCOUNT_ID $REGION $REPO_URI $IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"nodecont","imageUri":"%s"}]' "$REPO_URI:$IMAGE_TAG" > imagedefinitions.json
       - echo Writing appspec.yml...
 
 artifacts:
