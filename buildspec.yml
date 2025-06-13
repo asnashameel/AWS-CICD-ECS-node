@@ -4,7 +4,7 @@ env:
   variables:
     ACCOUNT_ID: 207567798584
     REGION: us-east-1
-    REPO_URI: 207567798584.dkr.ecr.us-east-1.amazonaws.com/nodeimg
+    REPO_URI: 207567798584.dkr.ecr.us-east-1.amazonaws.com/node-image
     IMAGE_TAG: latest
 
 phases:
